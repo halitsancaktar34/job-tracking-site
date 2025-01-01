@@ -17,7 +17,7 @@ const Card = ({ job }) => {
       dispatch(deleteJob(job.id))
     })
     .catch(()=> {
-      toast.err('Silme işlemi başarısız')
+      toast.error('Silme işlemi başarısız')
     })
   }
 
