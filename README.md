@@ -8,7 +8,6 @@
 
 <li>Developed using React for building dynamic and interactive user interfaces.</li>
 <li>State management powered by Redux Toolkit, enabling efficient and centralized data handling.</li> 
-<li>Sorting options to organize job applications based on different criteria.</li> 
 <li>Styled with SCSS for modular and maintainable styling.</li> 
 <li>Implemented notifications using React Toastify for improved user feedback.</li> 
 <li>API requests managed with Axios for reliable and efficient communication with the backend.</li> 
