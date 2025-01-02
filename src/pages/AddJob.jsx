@@ -17,81 +17,105 @@ const AddJob = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // bileşen ekrana basıldığında verileri çek
+  // Fetch data when the component is mounted
   useEffect(() => {
-    // 1) yüklenme durumunu güncelle
+    // 1) Update loading state
     dispatch(setLoading());
 
     axios
       .get("http://localhost:4500/jobs")
-      //2) veri gelirse store'a aktar
+      // 2) If data is received, update the store
       .then((res) => dispatch(setJobs(res.data)))
-      //3) hata olursa store'u güncelle
+      // 3) If there is an error, update the store with the error state
       .catch(() => dispatch(setError()));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // input'lardan verileri al
+    // Get data from the form inputs
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    // işe id ve oluşturulma tarihi ekle
+    // Add an id and creation date to the job
     data.id = v4();
     data.date = new Date().toLocaleDateString();
 
-    // hem apiye hem store'a işi ekle
+    // Add the job to both the API and the store
     axios.post("http://localhost:4500/jobs", data).then(() => {
       navigate("/");
       dispatch(createJob(data));
-      toast.success("Ekleme İşlemi Başarılı");
+      toast.success("Job Added Successfully");
     });
 
-    // bütun formu sıfırlar
+    // Reset the entire form
     e.target.reset();
   };
 
   return (
     <div className="add-page">
       <section className="add-sec">
-        <h2>Yeni İş Ekle</h2>
+        <h2>Add New Job</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Pozisyon</label>
+            <label>Position</label>
             <input list="positions" name="position" type="text" required />
 
             <datalist id="positions">
-              {state.jobs.map((job) => (
-                <option value={job.position} />
-              ))}
+              {state.jobs
+                .reduce((unique, job) => {
+                  // If the unique array does not contain the position, add it
+                  if (!unique.includes(job.position)) {
+                    unique.push(job.position);
+                  }
+                  return unique;
+                }, [])
+                .map((position) => (
+                  <option key={position} value={position} />
+                ))}
             </datalist>
           </div>
 
           <div>
-            <label>Şirket</label>
+            <label>Company</label>
             <input list="companies" name="company" type="text" required />
             <datalist id="companies">
-              {state.jobs.map((job) => (
-                <option value={job.company} />
-              ))}
+              {state.jobs
+                .reduce((unique, job) => {
+                  // If the unique array does not contain the company name, add it
+                  if (!unique.includes(job.company)) {
+                    unique.push(job.company);
+                  }
+                  return unique;
+                }, [])
+                .map((company) => (
+                  <option key={company} value={company} />
+                ))}
             </datalist>
           </div>
 
           <div>
-            <label>Lokasyon</label>
+            <label>Location</label>
             <input list="locations" name="location" type="text" required />
             <datalist id="locations">
-              {state.jobs.map((job) => (
-                <option value={job.location} />
-              ))}
+              {state.jobs
+                .reduce((unique, job) => {
+                  // If the unique array does not contain the location, add it
+                  if (!unique.includes(job.location)) {
+                    unique.push(job.location);
+                  }
+                  return unique;
+                }, [])
+                .map((location) => (
+                  <option key={location} value={location} />
+                ))}
             </datalist>
           </div>
 
           <div>
-            <label>Durum</label>
+            <label>Status</label>
             <select name="status" required>
               <option value={""} hidden>
-                Seçiniz
+                Select
               </option>
               {statusOpt.map((text) => (
                 <option>{text}</option>
@@ -100,10 +124,10 @@ const AddJob = () => {
           </div>
 
           <div>
-            <label>Tür</label>
+            <label>Type</label>
             <select name="type" required>
               <option value={""} hidden>
-                Seçiniz
+                Select
               </option>
               {typeOpt.map((text) => (
                 <option>{text}</option>
@@ -113,7 +137,7 @@ const AddJob = () => {
 
           <div>
             <button className="add-button" type="submit">
-              <span className="button_top">Oluştur</span>
+              <span className="button_top">Create</span>
             </button>
           </div>
         </form>

@@ -22,10 +22,11 @@ const Card = ({ job }) => {
   }
 
   const color = {
-    "Devam Ediyor": "green",
-    Mülakat: "orange",
-    Reddedildi: "red",
+    "In Progress": "green",
+    "Interview": "orange",
+    "Rejected": "red",
   };
+  
   return (
     <div className="card">
       {/* Üst Kısım */}

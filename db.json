@@ -1,85 +1,85 @@
 {
   "jobs": [
     {
-      "id": 7,
-      "position": "Frontend Developer",
-      "company": "Udemig",
-      "location": "İzmir/Bayraklı",
-      "status": "Devam Ediyor",
-      "type": "Tam Zamanlı",
-      "date": "1/17/2021"
-    },
-    {
       "id": 8,
       "position": "Marketing Manager",
-      "company": "Coca Cola",
-      "location": "İstanbul/Levent",
-      "status": "Mülakat",
-      "type": "Tam Zamanlı",
-      "date": "9/12/2020"
+      "company": "Coca-Cola",
+      "location": "New York",
+      "status": "Interview",
+      "type": "Full-Time",
+      "date": "09/12/2020"
     },
     {
       "id": 9,
       "position": "Software Tester",
-      "company": "IBM",
-      "location": "Ankara/Çankaya",
-      "status": "Devam Ediyor",
-      "type": "Yarı Zamanlı",
-      "date": "3/28/2023"
+      "company": "Microsoft",
+      "location": "Seattle",
+      "status": "In Progress",
+      "type": "Full-Time",
+      "date": "03/28/2023"
     },
     {
       "id": 10,
       "position": "Data Analyst",
       "company": "Facebook",
-      "location": "Menlo Park",
-      "status": "Reddedildi",
-      "type": "Uzaktan",
-      "date": "3/28/2023"
-    },
-    {
-      "position": "React Natie",
-      "company": "CGI",
-      "location": "Uzaktan",
-      "status": "Devam Ediyor",
-      "type": "Tam Zamanlı",
-      "id": "c5556876-e3f3-4e90-a98a-553864d9aa17",
-      "date": "10/2/2023"
-    },
-    {
-      "position": "Frontend",
-      "company": "Udemy",
       "location": "New York",
-      "status": "Devam Ediyor",
-      "type": "Yarı Zamanlı",
-      "id": "f7547b59-aff1-46a7-8cb7-0fead8f63614",
-      "date": "11/30/2023"
+      "status": "Rejected",
+      "type": "Remote",
+      "date": "03/01/2023"
     },
     {
       "position": "Frontend Developer",
-      "company": "Udemig",
-      "location": "New York",
-      "status": "Mülakat",
-      "type": "Staj",
+      "company": "Google",
+      "location": "Los Angeles",
+      "status": "Interview",
+      "type": "Internship",
       "id": "962f4d90-a04c-4806-99f1-4d224c624a7a",
-      "date": "12/5/2023"
+      "date": "12/05/2023"
     },
     {
       "position": "Frontend Developer",
-      "company": "Udemig",
-      "location": "İzmir/Bayraklı",
-      "status": "Devam Ediyor",
-      "type": "Staj",
+      "company": "Google",
+      "location": "Los Angeles",
+      "status": "In Progress",
+      "type": "Full-Time",
       "id": "034db425-71fe-4e52-9535-4d42433d2c63",
-      "date": "12/24/2023"
+      "date": "12/01/2023"
     },
     {
       "position": "Frontend Developer",
       "company": "Amazon",
-      "location": "İstanbul/Levent",
-      "status": "Devam Ediyor",
-      "type": "Uzaktan",
+      "location": "Seattle",
+      "status": "In Progress",
+      "type": "Remote",
       "id": "1b955ffa-175f-4e37-8a27-da3e8ae27837",
-      "date": "08.01.2024"
+      "date": "08/01/2024"
+    },
+    {
+      "position": "Backend Developer",
+      "company": "Google",
+      "location": "Mountain View",
+      "status": "Interview",
+      "type": "On-Site",
+      "id": "2a345ffa-123a-4c89-9b67-ca8e8be27898",
+      "date": "12/02/2024"
+    },
+    {
+      "position": "Backend Developer",
+      "company": "Microsoft",
+      "location": "Redmond",
+      "status": "In Progress",
+      "type": "Hybrid",
+      "id": "3c456ffa-678b-4d45-8d12-ba4e8be27854",
+      "date": "01/15/2024"
+    },
+    {
+      "position": "Marketing Manager",
+      "company": "Microsoft",
+      "location": "Redmond",
+      "status": "Interview",
+      "type": "Full-Time",
+      "id": "e38aee05-960a-4eb8-b7b6-79a1130d5098",
+      "date": "02.01.2025"
     }
   ]
 }

@@ -22,10 +22,10 @@ const Filter = ({ jobs }) => {
 
   return (
     <section className="filter-sec">
-      <h2>Filtreleme Formu</h2>
+      <h2>Filter Form</h2>
       <form>
         <div>
-          <label htmlFor="search-input">Şirket ismine göre ara:</label>
+          <label htmlFor="search-input">Search by company name:</label>
           <input
             id="search-input"
             onChange={(e) => setText(e.target.value)}
@@ -35,6 +35,20 @@ const Filter = ({ jobs }) => {
           />
 
           <datalist id="positions">
+            {jobs
+              .reduce((unique, job) => {
+                // If the unique array does not contain the company name, add it
+                if (!unique.some((item) => item.company === job.company)) {
+                  unique.push(job);
+                }
+                return unique;
+              }, [])
+              .map((job) => (
+                <option key={job.company} value={job.company} />
+              ))}
+          </datalist>
+
+          <datalist id="positions">
             {jobs.map((job) => (
               <option key={job.company} value={job.company} />
             ))}
@@ -42,7 +56,7 @@ const Filter = ({ jobs }) => {
         </div>
 
         <div>
-          <label htmlFor="status-select">Durum</label>
+          <label htmlFor="status-select">Status</label>
           <select
             id="status-select"
             onChange={(e) =>
@@ -52,7 +66,7 @@ const Filter = ({ jobs }) => {
             }
             name="status"
           >
-            <option hidden>Seçiniz</option>
+            <option hidden>Select</option>
             {statusOpt.map((text, index) => (
               <option key={index}>{text}</option>
             ))}
@@ -60,7 +74,7 @@ const Filter = ({ jobs }) => {
         </div>
 
         <div>
-          <label htmlFor="type-select">Tür</label>
+          <label htmlFor="type-select">Type</label>
           <select
             id="type-select"
             onChange={(e) =>
@@ -68,7 +82,7 @@ const Filter = ({ jobs }) => {
             }
             name="type"
           >
-            <option hidden>Seçiniz</option>
+            <option hidden>Select</option>
             {typeOpt.map((text, index) => (
               <option key={index}>{text}</option>
             ))}
@@ -76,12 +90,13 @@ const Filter = ({ jobs }) => {
         </div>
 
         <div>
-          <label htmlFor="sort-select">Sırala</label>
+          <label htmlFor="sort-select">Sort</label>
           <select
             id="sort-select"
             name="sort"
             onChange={(e) => dispatch(sortJobs(e.target.value))}
           >
+            <option hidden>Select</option>
             {sortOpt.map((text, index) => (
               <option key={index}>{text}</option>
             ))}
@@ -94,7 +109,7 @@ const Filter = ({ jobs }) => {
             onClick={() => dispatch(clearFilters())}
             type="reset"
           >
-            <span className="button_top">Filtreleri Sıfırla</span>
+            <span className="button_top">Reset Filters</span>
           </button>
         </div>
       </form>

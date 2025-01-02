@@ -48,10 +48,10 @@ const jobSlice = createSlice({
         case "z-a":
           state.jobs.sort((a, b) => b.company.localeCompare(a.company));
           break;
-        case "En Yeni":
+        case "Newest":
           state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date));
           break;
-        case "En Eski":
+        case "Oldest":
           state.jobs.sort((a, b) => new Date(a.date) - new Date(b.date));
           break;
         default:

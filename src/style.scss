@@ -40,22 +40,44 @@ header {
   padding: 20px;
 }
 
-.job-list {
-  margin: 0 40px;
+.job-page {
+  grid-template-columns: 1fr 3fr; /* Filtre ve listeyi böl */
+  gap: 20px;
+  padding: 20px;
+}
+
+.filter-container {
+  grid-column: 1; /* Sol sütunda filtre */
+}
+
+.job-list-container {
+  grid-column: 2; /* Sağ sütunda liste */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 50px;
+  gap: 30px;
+  margin-left: 45px;
 }
 
 @media (max-width: 940px) {
-  .job-list {
-    display: grid; /* Blok düzenine geçiş */
-    place-items: center;
-    text-align: center; /* İçeriği ortala */
+  .job-page {
+    grid-template-columns: 1fr; /* Küçük ekranlar için tek sütuna geç */
   }
-  .card{
-    width: 400px;
+
+  .filter-container {
+    margin-bottom: 20px; /* Alt boşluk ekle */
   }
+
+  .job-list-container {
+    grid-template-columns: 1fr; /* Listeyi tek sütuna çevir */
+  }
+}
+
+.card {
+  background: gray;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%; /* Kart genişliğini esnek yap */
+  max-width: 400px; /* Maksimum genişlik ayarı */
 }
 
 .card {
@@ -72,7 +94,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 14px;
     margin-bottom: 20px;
 
     .letter {
@@ -191,7 +213,7 @@ header {
 
 // ekleeme sayfası
 .add-page {
-  min-height: 90vh;
+  min-height: 80vh;
   display: grid;
   place-items: center;
 }
@@ -201,6 +223,7 @@ header {
   max-width: 700px;
   box-shadow: 0 0 55px 0 rgb(226, 68, 160);
   padding: 25px;
+  margin-bottom: 100px;
 
   form {
     margin-top: 20px;
